@@ -3,7 +3,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import IngredientList from "../widgets/ingredientlist";
 import CarbonView from "../widgets/carbonView";
 import WaterView from "../widgets/waterView";
-import SubstituteView from "../widgets/SubstituteView";
+import SubstituteView from "../widgets/substituteView";
 
 const Carousel = () => {
   return (
