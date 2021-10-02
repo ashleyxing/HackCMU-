@@ -44,10 +44,11 @@ const Input = () => {
             var data = response.data;
             var ingredients = data.ingredients;
             var substitutes = getSubstitutes(data, ingredients);
-            await getImpact();
+            console.log("jkdlfjklsadjf",substitutes)
             setIngredients(ingredients);
             setSubstitutes(substitutes);
             setRecipeName(data.name);
+            await getImpact();
           })
           .catch((error) => console.log(error));
   }
