@@ -140,7 +140,7 @@ const WaterIngredientWrapper = styled.div`
   }
   .water {
     display: inline-block;
-    background-color: beige;
+    background-color: transparent;
     border: 5px solid rgb(107, 154, 196);
     border-radius: 5px;
     height: 25px;
@@ -173,6 +173,13 @@ const WaterViewWrapper = styled.div`
     justify-content: center;
     align-items: top;
     padding-right: 100px;
+  }
+  li {
+    transition: 0.25s transform ease-out;
+    z-index: 4;
+  }
+  li:hover {
+    transform: scale(1.05);
   }
   .waveContainer {
     position: absolute;
