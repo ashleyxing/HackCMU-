@@ -2,12 +2,24 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { dataContext } from '../DataProvider';
-import fetchWebsite from '../../api/recipes/fetchWebsite';
 import axios from 'axios';
 
 const Input = () => {
-  const { website, setWebsite, setIngredients, setSubstitutes } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact, setRecipeName } = useContext(dataContext);
 
+  const getImpact = async () => {
+      await axios.get(`http://localhost:3002/carbon_footprint`, {
+          headers: {
+          'Content-Type': 'application/json'
+      }})
+          .then((response) => {
+            var data = response.data;
+            console.log(data);
+            setIngredientImpact(data);
+          })
+          .catch((error) => console.log(error));
+  };
+  
   const getSubstitute = (websiteData, ingredient) => {
     let name = ingredient.name
     console.log(name)
@@ -20,7 +32,6 @@ const Input = () => {
   };
 
   const fetchWebsite = async (website) => {
-      // var websiteData = 
       await axios.get(`http://localhost:3001/${website}`, {
           headers: {
           'Content-Type': 'application/json'
@@ -29,14 +40,12 @@ const Input = () => {
             var data = response.data;
             var ingredients = data.ingredients;
             var substitutes = getSubstitutes(data, ingredients);
+            getImpact();
             setIngredients(ingredients);
             setSubstitutes(substitutes);
+            setRecipeName(data.name);
           })
           .catch((error) => console.log(error));
-      // var ingredients = websiteData.ingredients;
-      // var substitutes = getSubstitutes(websiteData, ingredients);
-      // console.log([ingredients, substitutes])
-      // return [ingredients, substitutes];
   }
 
   return (
@@ -55,13 +64,6 @@ const Input = () => {
         setWebsite(replaced);
         fetchWebsite(replaced); 
       }}>See Results</Link>
-      {/* <button onClick={() => {
-        var replaced = website.replaceAll('/','*');
-        setWebsite(replaced);
-        var arr = fetchWebsite(replaced);
-        setIngredients(arr[0]);
-        setSubstitutes(arr[1]); 
-      }}>PLEASE WORK</button> */}
     </InputWrapper>
   );
 };

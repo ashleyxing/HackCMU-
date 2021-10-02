@@ -1,116 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NutritionLabel = ({ingredients}) => {
+const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
   return (
     <NutritionLabelWrapper>
       <header class="performance-facts__header">
-        <h1 class="performance-facts__title">Ingredients List</h1>
+        <h1 class="performance-facts__title">{recipeName}</h1>
         <p>Here's the deets about your recipe!</p>
       </header>
       <table class="performance-facts__table">
-        <thead>
-          <tr>
-            <th colspan="3" class="small-info">
-              Amount Per Serving
-            </th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <th colspan="2">
-              <b>Calories</b> 200
-            </th>
-            <td>
-              Calories from Fat
-              130
-            </td>
-          </tr>
           <tr class="thick-row">
+            <th colspan="2" class="small-info">
+              <b>Ingredient</b>
+            </th>
             <td colspan="3" class="small-info">
-              <b>% Daily Value*</b>
+              <b>Quantity</b>
             </td>
           </tr>
-          <tr>
-            <th colspan="2">
-              <b>Total Fat</b> 14g
-            </th>
-            <td>
-              <b>22%</b>
-            </td>
-          </tr>
-          <tr>
-            <td class="blank-cell">
-            </td>
-            <th>
-              Saturated Fat 9g
-            </th>
-            <td>
-              <b>22%</b>
-            </td>
-          </tr>
-          <tr>
-            <td class="blank-cell">
-            </td>
-            <th>
-              Trans Fat 0g
-            </th>
-            <td>
-            </td>
-          </tr>
-          <tr>
-            <th colspan="2">
-              <b>Cholesterol</b> 55mg
-            </th>
-            <td>
-              <b>18%</b>
-            </td>
-          </tr>
-          <tr>
-            <th colspan="2">
-              <b>Sodium</b> 40mg
-            </th>
-            <td>
-              <b>2%</b>
-            </td>
-          </tr>
-          <tr class="thick-end">
-            <th colspan="2">
-              <b>Protein</b> 3g
-            </th>
-            <td>
-            </td>
-          </tr>
+          {ingredients.map((ingredient, i) => {
+            return (
+              <tr class={(() => {
+                if (i === ingredients.length - 1) 
+                  return "thick-end" 
+              })()} key={i}>
+                <th colspan="2">
+                  <b>{ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1)}</b>
+                </th>
+                <td>
+                  <b>{(ingredient.amount + " " + ingredient.unit).trim()}</b>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-
-      <table class="performance-facts__table--grid">
-        <tbody>
-          <tr>
-            <td colspan="2">
-              Vitamin A
-              10%
-            </td>
-            <td>
-              Vitamin C
-              0%
-            </td>
-          </tr>
-          <tr class="thin-end">
-            <td colspan="2">
-              Calcium
-              10%
-            </td>
-            <td>
-              Iron
-              6%
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
-
+      <p class="small-info">Go to the next slide to see your eco-friendly score and appropriate substitutes.</p>
     </NutritionLabelWrapper>
   );
 };
@@ -132,7 +57,6 @@ const NutritionLabelWrapper = styled.div`
   .performance-facts__header {
     border-bottom: 10px solid black;
     padding: 0 0 0.25rem 0;
-    margin: 0 0 0.5rem 0;
     p {
       margin: 0;
     }
@@ -166,7 +90,7 @@ const NutritionLabelWrapper = styled.div`
     .thick-row {
       th,
       td {
-        border-top-width: 5px;
+        border-top-width: 0px;
       }
     }
   }

@@ -1,6 +1,7 @@
 {
     "https:**www.foodnetwork.com*recipes*trisha-yearwood*cheese-stuffed-burgers-recipe-2065357": {
         "url": ["https://www.foodnetwork.com/recipes/trisha-yearwood/cheese-stuffed-burgers-recipe-2065357"],
+        "name": "Cheese Stuffed Burger",
         "ingredients": [
             {
                 "name": "beef",
@@ -13,12 +14,12 @@
                 "unit": "oz"
             },
             {
-                "name": "tomatoes",
+                "name": "tomato",
                 "amount": 2,
                 "unit": ""
             },
             {
-                "name": "hamburger buns",
+                "name": "hamburger bun",
                 "amount": 4,
                 "unit": ""
             },
