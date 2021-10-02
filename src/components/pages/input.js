@@ -5,7 +5,7 @@ import { dataContext } from '../DataProvider';
 import fetchWebsite from '../../api/recipes/fetchWebsite';
 
 const Input = () => {
-  const { website, setWebsite } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes } = useContext(dataContext);
   return (
     <InputWrapper>
       <h1 className="recipe-title">Send Us a Recipe</h1>
@@ -15,10 +15,15 @@ const Input = () => {
         className="input"
         placeholder="A delicious recipe..."
         value={website}
-        onChange={(e) => setWebsite(e.target.value)}
+        onChange={(e) => setWebsite(e.target.value.replaceAll('/','*'))}
       />
       <Link to="/input" className="button">Submit</Link>
-      <button onClick={fetchWebsite}>PLEASE WORK</button>
+      <button onClick={() => {
+        setWebsite(website.replace('/','*'));
+        var arr = fetchWebsite(website);
+        setIngredients(arr[0]);
+        setSubstitutes(arr[1]); 
+      }}>PLEASE WORK</button>
     </InputWrapper>
   );
 };
