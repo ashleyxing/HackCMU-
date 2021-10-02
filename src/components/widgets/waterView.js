@@ -121,7 +121,9 @@ const WaterView = () => {
           </li>
         ))}
       </ul>
-      <Waves />
+      <div className='waveContainer'>
+        <Waves />
+      </div>
     </WaterViewWrapper>
   );
 };
@@ -171,6 +173,9 @@ const WaterViewWrapper = styled.div`
     justify-content: center;
     align-items: top;
     padding-right: 100px;
+  }
+  .waveContainer {
+    overflow: hidden;
   }
   ${(props) => css`
     background-color: ${props.backgroundColor};
