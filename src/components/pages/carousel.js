@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactFullpage from "@fullpage/react-fullpage";
 import IngredientList from '../widgets/ingredientlist';
+import CarbonView from '../widgets/carbonView';
 
 const Carousel = () => {
   return (
@@ -14,7 +15,7 @@ const Carousel = () => {
                 <IngredientList />
               </div>
               <div className="slide">
-                <h3>Slide 2.2</h3>
+                <CarbonView />
               </div>
               <div className="slide">
                 <h3>Slide 2.3</h3>

@@ -1,86 +1,63 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NutritionLabel = ({ingredients}) => {
+const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
+  // console.log("Ingredients: ", ingredients);
+  // console.log("Ingredient impact: ", ingredientImpact);
+  // console.log("Ingredient impact of beef: ", ingredientImpact["beef"]);
+  // let totalCarbon = 0;
+  // for (let i = 0; i < ingredients.length; i++) {
+  //   // console.log("Ingredient impact of " + ingredients[i].name + ": " + ingredientImpact[ingredients[i].name]);
+  //   let impact = ingredientImpact[ingredients[i].name]; 
+  //   console.log(impact["carbon"]["amount"]);
+  // }
+  // console.log("Total carbon: ", totalCarbon);
   return (
     <NutritionLabelWrapper>
       <header class="performance-facts__header">
-        <h1 class="performance-facts__title">Ingredients List</h1>
+        <h1 class="performance-facts__title">{recipeName}</h1>
         <p>Here's the deets about your recipe!</p>
       </header>
       <table class="performance-facts__table">
         <thead>
           <tr>
             <th colspan="3" class="small-info">
-              Amount Per Serving
+              Eco-Friendly Breakdown
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th colspan="2">
-              <b>Calories</b> 200
+              <b>Carbon</b> (kg/lb)
             </th>
             <td>
-              Calories from Fat
-              130
+              <b></b>
             </td>
           </tr>
           <tr class="thick-row">
+            <th colspan="2" class="small-info">
+              <b>Ingredient</b>
+            </th>
             <td colspan="3" class="small-info">
-              <b>% Daily Value*</b>
+              <b>Quantity</b>
             </td>
           </tr>
-          <tr>
-            <th colspan="2">
-              <b>Total Fat</b> 14g
-            </th>
-            <td>
-              <b>22%</b>
-            </td>
-          </tr>
-          <tr>
-            <td class="blank-cell">
-            </td>
-            <th>
-              Saturated Fat 9g
-            </th>
-            <td>
-              <b>22%</b>
-            </td>
-          </tr>
-          <tr>
-            <td class="blank-cell">
-            </td>
-            <th>
-              Trans Fat 0g
-            </th>
-            <td>
-            </td>
-          </tr>
-          <tr>
-            <th colspan="2">
-              <b>Cholesterol</b> 55mg
-            </th>
-            <td>
-              <b>18%</b>
-            </td>
-          </tr>
-          <tr>
-            <th colspan="2">
-              <b>Sodium</b> 40mg
-            </th>
-            <td>
-              <b>2%</b>
-            </td>
-          </tr>
-          <tr class="thick-end">
-            <th colspan="2">
-              <b>Protein</b> 3g
-            </th>
-            <td>
-            </td>
-          </tr>
+          {ingredients.map((ingredient, i) => {
+            return (
+              <tr class={(() => {
+                if (i === ingredients.length - 1) 
+                  return "thick-end" 
+              })()} key={i}>
+                <th colspan="2">
+                  <b>{ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1)}</b>
+                </th>
+                <td>
+                  <b>{(ingredient.amount + " " + ingredient.unit).trim()}</b>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 

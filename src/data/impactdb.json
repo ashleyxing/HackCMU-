@@ -36,7 +36,7 @@
             "amount": 1,
             "unit": "lb"
         },
-        "hamburger buns": {
+        "hamburger bun": {
             "carbon": {
                 "amount": 0.5,
                 "unit": "kg"
