@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import CountUp, { useCountUp } from "react-countup";
+import { dataContext } from "../DataProvider";
 
 const IngredientSection = () => {
-  var data = [
-    ["beef", "chicken"],
-    ["american cheese", "mozerella cheese"],
-    ["butter", "margarine"],
-  ];
+
+  const { ingredients, substitutes } = useContext(dataContext);
+
+  var data = [];
+  for(let i = 0; i < ingredients.length; i++) {
+    if (substitutes[i]) {
+      data.push([ingredients[i].name, substitutes[i]]);
+    }
+  }
 
   return (
     <div className='ingredient-list'>
@@ -21,7 +26,7 @@ const IngredientSection = () => {
 };
 
 const RecipeSection = () => {
-  var data = ["Impossible Burger", "Black Bean Burger", "Vegan Sloppy Joes"];
+  var data = ["Impossible Burger", "Black Bean Burger", "Chicken Sliders"];
   return (
     <div className='recipe-list'>
       {data.map((recipe_sub) => (
@@ -41,14 +46,6 @@ const SubstituteView = () => {
       return x < y ? -1 : x > y ? 1 : 0;
     });
   }
-
-  var data = [
-    ["Beef", 122],
-    ["American Cheese", 59],
-    ["Tomatoes", 15],
-  ];
-
-  data = sort_by_key(data, 1).reverse();
 
   return (
     <SubstituteViewWrapper backgroundColor='beige'>
