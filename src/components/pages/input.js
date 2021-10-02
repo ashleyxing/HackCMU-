@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { dataContext } from '../DataProvider';
-import fetchWebsite from '../../api/recipes/fetchWebsite';
 import axios from 'axios';
 
 const Input = () => {
@@ -33,7 +32,6 @@ const Input = () => {
   };
 
   const fetchWebsite = async (website) => {
-      // var websiteData = 
       await axios.get(`http://localhost:3001/${website}`, {
           headers: {
           'Content-Type': 'application/json'

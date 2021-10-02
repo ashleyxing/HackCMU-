@@ -2,16 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
-  // console.log("Ingredients: ", ingredients);
-  // console.log("Ingredient impact: ", ingredientImpact);
-  // console.log("Ingredient impact of beef: ", ingredientImpact["beef"]);
-  // let totalCarbon = 0;
-  // for (let i = 0; i < ingredients.length; i++) {
-  //   // console.log("Ingredient impact of " + ingredients[i].name + ": " + ingredientImpact[ingredients[i].name]);
-  //   let impact = ingredientImpact[ingredients[i].name]; 
-  //   console.log(impact["carbon"]["amount"]);
-  // }
-  // console.log("Total carbon: ", totalCarbon);
   return (
     <NutritionLabelWrapper>
       <header class="performance-facts__header">
@@ -19,22 +9,7 @@ const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
         <p>Here's the deets about your recipe!</p>
       </header>
       <table class="performance-facts__table">
-        <thead>
-          <tr>
-            <th colspan="3" class="small-info">
-              Eco-Friendly Breakdown
-            </th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <th colspan="2">
-              <b>Carbon</b> (kg/lb)
-            </th>
-            <td>
-              <b></b>
-            </td>
-          </tr>
           <tr class="thick-row">
             <th colspan="2" class="small-info">
               <b>Ingredient</b>
@@ -60,34 +35,7 @@ const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
           })}
         </tbody>
       </table>
-
-      <table class="performance-facts__table--grid">
-        <tbody>
-          <tr>
-            <td colspan="2">
-              Vitamin A
-              10%
-            </td>
-            <td>
-              Vitamin C
-              0%
-            </td>
-          </tr>
-          <tr class="thin-end">
-            <td colspan="2">
-              Calcium
-              10%
-            </td>
-            <td>
-              Iron
-              6%
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
-
+      <p class="small-info">Go to the next slide to see your eco-friendly score and appropriate substitutes.</p>
     </NutritionLabelWrapper>
   );
 };
@@ -109,7 +57,6 @@ const NutritionLabelWrapper = styled.div`
   .performance-facts__header {
     border-bottom: 10px solid black;
     padding: 0 0 0.25rem 0;
-    margin: 0 0 0.5rem 0;
     p {
       margin: 0;
     }
@@ -143,7 +90,7 @@ const NutritionLabelWrapper = styled.div`
     .thick-row {
       th,
       td {
-        border-top-width: 5px;
+        border-top-width: 0px;
       }
     }
   }
