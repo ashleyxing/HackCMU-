@@ -1,6 +1,6 @@
 {
-    "burger": {
-        "url": ["https://www.foodnetwork.com/recipes/trisha-yearwood/cheese-stuffed-burgers-recipe-2065356"],
+    "https:**www.foodnetwork.com*recipes*trisha-yearwood*cheese-stuffed-burgers-recipe-2065357": {
+        "url": ["https://www.foodnetwork.com/recipes/trisha-yearwood/cheese-stuffed-burgers-recipe-2065357"],
         "ingredients": [
             {
                 "name": "beef",
@@ -27,6 +27,23 @@
                 "amount": 1,
                 "unit": "cup"
             }
-        ]
+        ],
+        "substitutes": {
+            "beef": [
+                "chicken"
+            ],
+            "blue cheese": [
+                "mozzarella"
+            ],
+            "tomatoes": [
+
+            ],
+            "hamburger buns": [
+
+            ],
+            "mayonnaise": [
+                "vegan mayonnaise"
+            ] 
+        }
     }
 }
