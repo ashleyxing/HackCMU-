@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './components/pages/home';
 import Input from './components/pages/input';
+import Carousel from './components/pages/carousel';
 import { DataProvider } from './components/DataProvider';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path="/input">
             <Input />
+          </Route>
+          <Route path="/results">
+            <Carousel />
           </Route>
         </Switch>
       </Router>
