@@ -2,12 +2,9 @@ import React from "react";
 import styled, { css } from "styled-components";
 import CountUp, { useCountUp } from "react-countup";
 
-var maxVal = 200;
-
 // WAVES FROM: https://codepen.io/goodkatz/pen/LYPGxQz?editors=1100
 const Waves = () => {
   var wavestr = "rgba(107,154,196,";
-  //   wavestr = "rgba(255,168,169,";
   return (
     <WaveWrapper>
       <div>
@@ -59,7 +56,6 @@ const Waves = () => {
 };
 
 const WaterIngredient = ({ name, water }) => {
-  console.log(water.toString() + "px");
   return (
     <div className='column'>
       <WaterIngredientWrapper height={water}>

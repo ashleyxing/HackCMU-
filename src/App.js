@@ -6,6 +6,7 @@ import Carousel from "./components/pages/carousel";
 import CarbonView from "./components/widgets/carbonView";
 import WaterView from "./components/widgets/waterView";
 import { DataProvider } from "./components/DataProvider";
+import SubstituteView from "./components/widgets/SubstituteView";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           <Route path='/water'>
             <WaterView />
           </Route> */}
+          <Route path='/substitute'>
+            <SubstituteView />
+          </Route>
         </Switch>
       </Router>
     </DataProvider>
