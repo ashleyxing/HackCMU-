@@ -5,9 +5,12 @@ const DataProvider = (props) => {
   const [ingredients, setIngredients] = useState([]);
   const [website, setWebsite] = useState("");
   const [substitutes, setSubstitutes] = useState([])
+  const [ingredientImpact, setIngredientImpact] = useState([])
   const value = {
     ingredients,
     setIngredients,
+    ingredientImpact,
+    setIngredientImpact,
     substitutes,
     setSubstitutes,
     website,
