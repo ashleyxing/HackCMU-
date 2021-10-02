@@ -175,8 +175,9 @@ const WaterViewWrapper = styled.div`
     padding-right: 100px;
   }
   .waveContainer {
+    position: absolute;
     overflow: hidden;
-    width: 100%;
+    width: 99.5vw;
     height: 100%;
   }
   ${(props) => css`
@@ -212,10 +213,10 @@ const WaveWrapper = styled.div`
 
   .waves {
     position: absolute;
-    width: 100%;
     left: -5px;
     bottom: 0px;
-    height: clamp(100px, 175px, 200px);
+    width: 100vw;
+    height: clamp(100px, 125px, 150px);
   }
 
   .content {
