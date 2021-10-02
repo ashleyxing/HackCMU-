@@ -4,10 +4,14 @@ import { dataContext } from '../DataProvider';
 import NutritionLabel from './nutritionlabel';
 
 const IngredientList = () => {
-  const { ingredients } = useContext(dataContext);
+  const { ingredients, recipeName, ingredientImpact } = useContext(dataContext);
   return (
     <IngredientListWrapper>
-      <NutritionLabel ingredients={ingredients} />
+      <NutritionLabel 
+        recipeName={recipeName}
+        ingredients={ingredients}
+        ingredientImpact={ingredientImpact}
+      />
     </IngredientListWrapper>
   );
 };

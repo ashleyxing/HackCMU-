@@ -1,11 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NutritionLabel = ({ingredients}) => {
+const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
+  // console.log("Ingredients: ", ingredients);
+  // console.log("Ingredient impact: ", ingredientImpact);
+  // console.log("Ingredient impact of beef: ", ingredientImpact["beef"]);
+  // let totalCarbon = 0;
+  // for (let i = 0; i < ingredients.length; i++) {
+  //   // console.log("Ingredient impact of " + ingredients[i].name + ": " + ingredientImpact[ingredients[i].name]);
+  //   let impact = ingredientImpact[ingredients[i].name]; 
+  //   console.log(impact["carbon"]["amount"]);
+  // }
+  // console.log("Total carbon: ", totalCarbon);
   return (
     <NutritionLabelWrapper>
       <header class="performance-facts__header">
-        <h1 class="performance-facts__title">Ingredients List</h1>
+        <h1 class="performance-facts__title">{recipeName}</h1>
         <p>Here's the deets about your recipe!</p>
       </header>
       <table class="performance-facts__table">
@@ -19,10 +29,10 @@ const NutritionLabel = ({ingredients}) => {
         <tbody>
           <tr>
             <th colspan="2">
-              <b>Carbon</b> 200
+              <b>Carbon</b> (kg/lb)
             </th>
             <td>
-              <b>Calories</b> 130
+              <b></b>
             </td>
           </tr>
           <tr class="thick-row">
@@ -38,7 +48,7 @@ const NutritionLabel = ({ingredients}) => {
               <tr class={(() => {
                 if (i === ingredients.length - 1) 
                   return "thick-end" 
-              })()}>
+              })()} key={i}>
                 <th colspan="2">
                   <b>{ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1)}</b>
                 </th>

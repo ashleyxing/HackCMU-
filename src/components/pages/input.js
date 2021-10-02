@@ -6,7 +6,7 @@ import fetchWebsite from '../../api/recipes/fetchWebsite';
 import axios from 'axios';
 
 const Input = () => {
-  const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact, setRecipeName } = useContext(dataContext);
 
   const getImpact = async () => {
       await axios.get(`http://localhost:3002/carbon_footprint`, {
@@ -19,7 +19,6 @@ const Input = () => {
             setIngredientImpact(data);
           })
           .catch((error) => console.log(error));
- 
   };
   
   const getSubstitute = (websiteData, ingredient) => {
@@ -46,12 +45,9 @@ const Input = () => {
             getImpact();
             setIngredients(ingredients);
             setSubstitutes(substitutes);
+            setRecipeName(data.name);
           })
           .catch((error) => console.log(error));
-      // var ingredients = websiteData.ingredients;
-      // var substitutes = getSubstitutes(websiteData, ingredients);
-      // console.log([ingredients, substitutes])
-      // return [ingredients, substitutes];
   }
 
   return (
@@ -70,13 +66,6 @@ const Input = () => {
         setWebsite(replaced);
         fetchWebsite(replaced); 
       }}>See Results</Link>
-      {/* <button onClick={() => {
-        var replaced = website.replaceAll('/','*');
-        setWebsite(replaced);
-        var arr = fetchWebsite(replaced);
-        setIngredients(arr[0]);
-        setSubstitutes(arr[1]); 
-      }}>PLEASE WORK</button> */}
     </InputWrapper>
   );
 };
