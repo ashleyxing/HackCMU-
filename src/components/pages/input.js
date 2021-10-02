@@ -9,7 +9,7 @@ const Input = () => {
   const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact } = useContext(dataContext);
 
   const getImpact = async () => {
-      await axios.get(`http://localhost:3002/carbon_footprint`, {
+      await axios.get(`http://localhost:3002/impact}`, {
           headers: {
           'Content-Type': 'application/json'
       }})
