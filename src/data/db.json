@@ -1,0 +1,30 @@
+{
+    "url": ["https://www.foodnetwork.com/recipes/trisha-yearwood/cheese-stuffed-burgers-recipe-2065356"],
+    "ingredients": [
+        {
+            "name": "beef",
+            "amount": 2,
+            "unit": "lb"
+        },
+        {
+            "name": "blue cheese",
+            "amount": 8,
+            "unit": "oz"
+        },
+        {
+            "name": "tomatoes",
+            "amount": 2,
+            "unit": ""
+        },
+        {
+            "name": "hamburger buns",
+            "amount": 4,
+            "unit": ""
+        },
+        {
+            "name": "mayonnaise",
+            "amount": 1,
+            "unit": "cup"
+        }
+    ]
+}
