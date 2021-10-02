@@ -1,7 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Sidebar from '../widgets/sidebar';
-import VerticalScroll from '../widgets/verticalscroll';
+import React from "react";
+import styled from "styled-components";
+import Sidebar from "../widgets/sidebar";
+import VerticalScroll from "../widgets/verticalscroll";
+import CarbonView from "../widgets/carbonView";
 
 const Home = () => {
   return (
