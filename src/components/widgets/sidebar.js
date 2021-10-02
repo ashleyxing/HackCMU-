@@ -4,26 +4,12 @@ import { Link } from 'react-router-dom';
 import fetchWebsite from '../../api/recipes/fetchWebsite';
 
 const Sidebar = () => {
-  const fetchWebsite = () => {
-    let recipe;
-    fetch('https://api.spoonacular.com/recipes/extract?apiKey=6b87762d3baa4f7d911132a401c70e65&url=https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies')
-        .then((response) => response.json())
-        .then((data) => {
-            recipe = data;
-            return recipe;
-        })
-        .catch((error) => console.log("fuck"));
-    return recipe;
-  }
-
-
   return (
     <SidebarWrapper>
       <div className="about-container">
         <h1 className="clean-plate-title">Clean Plate</h1>
         <p className="description">A fresh and environmentally friendly way of finding recipes and substitutes. Try it out now!</p>
         <Link to="/input" className="button">Get Started</Link>
-        <button onClick={fetchWebsite}>PLEASE WORK</button>
       </div>
     </SidebarWrapper>
   );
@@ -65,7 +51,6 @@ const SidebarWrapper = styled.div`
     text-decoration: none;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-
     &:hover {
       transform: none;
       background-color: rgba(122, 155, 118, 0.7);

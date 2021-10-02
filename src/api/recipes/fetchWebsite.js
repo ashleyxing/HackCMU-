@@ -6,6 +6,7 @@ const fetchWebsite = () => {
         .then((response) => response.json())
         .then((data) => {
             recipe = data;
+            console.log(recipe);
             return recipe;
         })
         .catch((error) => console.log("fuck"));
