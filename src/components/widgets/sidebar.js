@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
 import fetchWebsite from '../../api/recipes/fetchWebsite';
 
 const Sidebar = () => {
@@ -17,6 +16,8 @@ const Sidebar = () => {
 }
 
 
+
+const Sidebar = () => {
   return (
     <SidebarWrapper>
       <div className="about-container">
