@@ -1,19 +1,27 @@
 {
-    "carbon_footprint":{
+    "impact":{
         "beef": {
             "carbon": {
                 "amount": 60,
                 "unit": "kg"
+            },
+            "water": {
+                "amount": 6813,
+                "unit": "lit"
             },
             "amount": 1,
             "unit": "lb"
         },
         "tomato": {
             "carbon": {
-                "amount": 5.02,
+                "amount": 2.51,
                 "unit": "kg"
             },
-            "amount": 1,
+            "water": {
+                "amount": 134,
+                "unit": "lit"
+            },
+            "amount": 0.5,
             "unit": "lb"
         },
         "blue cheese": {
@@ -21,25 +29,49 @@
                 "amount": 29.76,
                 "unit": "kg"
             },
+            "water": {
+                "amount": 1336,
+                "unit": "lit"
+            },
             "amount": 1,
             "unit": "lb"
         },
         "hamburger bun": {
             "carbon": {
-                "amount": 1,
+                "amount": 0.5,
                 "unit": "kg"
             },
-            "amount": 1,
-            "unit": ""
+            "water": {
+                "water": 264,
+                "unit": "lit"
+            },
+            "amount": 2,
+            "unit": "buns"
         },
         "mayonnaise": {
             "carbon": {
                 "amount": 5.29,
                 "unit": "kg"
             },
+            "water": {
+
+            },
             "amount": 1,
             "unit": "kg"
+        },
+        "mozzarella": {
+            "carbon": {
+                "amount": 14.69,
+                "unit": "kg"
+            },
+            "water": {
+                "amount": "1336",
+                "unit": "lit"
+            },
+            "amount": 1,
+            "unit": "lb"
         }
+
     }
     
 }

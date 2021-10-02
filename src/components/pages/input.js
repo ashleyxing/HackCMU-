@@ -5,7 +5,7 @@ import { dataContext } from '../DataProvider';
 import axios from 'axios';
 
 const Input = () => {
-  const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact, setRecipeName } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes, ingredientImpact, setIngredientImpact, setRecipeName } = useContext(dataContext);
 
   const getImpact = async () => {
     await axios.get(`http://localhost:3002/carbon_footprint`, {
@@ -33,6 +33,7 @@ const Input = () => {
   };
 
   const fetchWebsite = async (website) => {
+<<<<<<< HEAD
     await axios.get(`http://localhost:3001/${website}`, {
         headers: {
         'Content-Type': 'application/json'
@@ -48,6 +49,23 @@ const Input = () => {
         })
         .catch((error) => console.log(error));
       return 0;
+=======
+      // var websiteData = 
+      await axios.get(`http://localhost:3001/${website}`, {
+          headers: {
+          'Content-Type': 'application/json'
+      }})
+          .then(async (response) => {
+            var data = response.data;
+            var ingredients = data.ingredients;
+            var substitutes = getSubstitutes(data, ingredients);
+            await getImpact();
+            setIngredients(ingredients);
+            setSubstitutes(substitutes);
+            setRecipeName(data.name);
+          })
+          .catch((error) => console.log(error));
+>>>>>>> ashley
   }
 
   return (
