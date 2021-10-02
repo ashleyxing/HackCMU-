@@ -3,9 +3,42 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { dataContext } from '../DataProvider';
 import fetchWebsite from '../../api/recipes/fetchWebsite';
+import axios from 'axios';
 
 const Input = () => {
-  const { website, setWebsite } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes } = useContext(dataContext);
+
+  const getSubstitute = (websiteData, ingredient) => {
+    let name = ingredient.name
+    console.log(name)
+    console.log(websiteData.substitutes)
+    return websiteData.substitutes[name];
+  };
+
+  const getSubstitutes = (websiteData, ingredients) => {
+      return ingredients.map((ingredient) => getSubstitute(websiteData, ingredient))
+  };
+
+  const fetchWebsite = async (website) => {
+      // var websiteData = 
+      await axios.get(`http://localhost:3001/${website}`, {
+          headers: {
+          'Content-Type': 'application/json'
+      }})
+          .then((response) => {
+            var data = response.data;
+            var ingredients = data.ingredients;
+            var substitutes = getSubstitutes(data, ingredients);
+            setIngredients(ingredients);
+            setSubstitutes(substitutes);
+          })
+          .catch((error) => console.log(error));
+      // var ingredients = websiteData.ingredients;
+      // var substitutes = getSubstitutes(websiteData, ingredients);
+      // console.log([ingredients, substitutes])
+      // return [ingredients, substitutes];
+  }
+
   return (
     <InputWrapper>
       <h1 className="recipe-title">Send Us a Recipe</h1>
@@ -17,8 +50,18 @@ const Input = () => {
         value={website}
         onChange={(e) => setWebsite(e.target.value)}
       />
-      <Link to="/input" className="button">Submit</Link>
-      <button onClick={fetchWebsite}>PLEASE WORK</button>
+      <Link to="/results" className="button" onClick={() => {
+        var replaced = website.replaceAll('/','*');
+        setWebsite(replaced);
+        fetchWebsite(replaced); 
+      }}>See Results</Link>
+      {/* <button onClick={() => {
+        var replaced = website.replaceAll('/','*');
+        setWebsite(replaced);
+        var arr = fetchWebsite(replaced);
+        setIngredients(arr[0]);
+        setSubstitutes(arr[1]); 
+      }}>PLEASE WORK</button> */}
     </InputWrapper>
   );
 };
