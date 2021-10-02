@@ -5,7 +5,7 @@ import { dataContext } from '../DataProvider';
 import axios from 'axios';
 
 const Input = () => {
-  const { website, setWebsite, setIngredients, setSubstitutes, ingredientImpact, setIngredientImpact, setRecipeName } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact, setRecipeName } = useContext(dataContext);
 
   const getImpact = async () => {
     await axios.get(`http://localhost:3002/impact`, {

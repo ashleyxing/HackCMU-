@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/home";
 import Input from "./components/pages/input";
 import Carousel from "./components/pages/carousel";
-import CarbonView from "./components/widgets/carbonView";
-import WaterView from "./components/widgets/waterView";
-import SubstitutesView from './components/widgets/substitutes';
 import { DataProvider } from "./components/DataProvider";
 
 
