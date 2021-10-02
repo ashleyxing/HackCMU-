@@ -4,7 +4,7 @@ import Home from "./components/pages/home";
 import Input from "./components/pages/input";
 import Carousel from "./components/pages/carousel";
 import { DataProvider } from "./components/DataProvider";
-import SubstituteView from "./components/widgets/SubstituteView";
+import SubstituteView from "./components/widgets/substituteView";
 
 
 function App() {
