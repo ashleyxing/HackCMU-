@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { dataContext } from '../DataProvider';
+import NutritionLabel from './nutritionlabel';
 
 const IngredientList = () => {
   const { ingredients } = useContext(dataContext);
@@ -8,6 +9,12 @@ const IngredientList = () => {
     <IngredientListWrapper>
       <h1 className="list-title">Ingredient List</h1>
       <p className="list-description">Here's the deets about your recipe!</p>
+      <NutritionLabel />
+      <ul>
+        {ingredients.map((ingredient, i) => {
+          return <li key={i}>{ingredient.name}</li>;
+        })}
+      </ul>
     </IngredientListWrapper>
   );
 };
