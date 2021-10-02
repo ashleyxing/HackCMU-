@@ -121,7 +121,9 @@ const WaterView = () => {
           </li>
         ))}
       </ul>
-      <Waves />
+      <div className='waveContainer'>
+        <Waves />
+      </div>
     </WaterViewWrapper>
   );
 };
@@ -138,7 +140,7 @@ const WaterIngredientWrapper = styled.div`
   }
   .water {
     display: inline-block;
-    background-color: beige;
+    background-color: transparent;
     border: 5px solid rgb(107, 154, 196);
     border-radius: 5px;
     height: 25px;
@@ -171,6 +173,19 @@ const WaterViewWrapper = styled.div`
     justify-content: center;
     align-items: top;
     padding-right: 100px;
+  }
+  li {
+    transition: 0.25s transform ease-out;
+    z-index: 4;
+  }
+  li:hover {
+    transform: scale(1.05);
+  }
+  .waveContainer {
+    position: absolute;
+    overflow: hidden;
+    width: 99.5vw;
+    height: 100%;
   }
   ${(props) => css`
     background-color: ${props.backgroundColor};
@@ -205,10 +220,10 @@ const WaveWrapper = styled.div`
 
   .waves {
     position: absolute;
-    width: 100%;
     left: -5px;
     bottom: 0px;
-    height: clamp(100px, 175px, 200px);
+    width: 100vw;
+    height: clamp(100px, 125px, 150px);
   }
 
   .content {
