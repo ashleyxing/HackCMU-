@@ -1,29 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import fetchWebsite from '../../api/recipes/fetchWebsite';
 
 const Sidebar = () => {
-  const fetchWebsite = () => {
-    let recipe;
-    fetch('https://api.spoonacular.com/recipes/extract?apiKey=6b87762d3baa4f7d911132a401c70e65&url=https://foodista.com/recipe/ZHK4KPB6/chocolate-crinkle-cookies')
-        .then((response) => response.json())
-        .then((data) => {
-            recipe = data;
-            return recipe;
-        })
-        .catch((error) => console.log("fuck"));
-    return recipe;
-}
-
-
-
-const Sidebar = () => {
+  const [ingredients, setIngredients] = useState(null)
   return (
     <SidebarWrapper>
       <div className="about-container">
         <h1 className="clean-plate-title">Clean Plate</h1>
         <p className="description">A fresh and environmentally friendly way of finding recipes and substitutes. Try it out now!</p>
-        <button onClick={fetchWebsite}>PLEASE WORK</button>
+        <button onClick={() => setIngredients(fetchWebsite())}>PLEASE WORK</button>
       </div>
     </SidebarWrapper>
   );
