@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
+const NutritionLabel = ({recipeName, ingredients}) => {
   return (
     <NutritionLabelWrapper>
       <header class="performance-facts__header">

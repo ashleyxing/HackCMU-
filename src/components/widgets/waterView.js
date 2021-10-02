@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
-import CountUp, { useCountUp } from "react-countup";
-
-var maxVal = 200;
+import CountUp from "react-countup";
+import { dataContext } from "../DataProvider";
 
 // WAVES FROM: https://codepen.io/goodkatz/pen/LYPGxQz?editors=1100
 const Waves = () => {
   var wavestr = "rgba(107,154,196,";
-  //   wavestr = "rgba(255,168,169,";
   return (
     <WaveWrapper>
       <div>
@@ -59,7 +57,6 @@ const Waves = () => {
 };
 
 const WaterIngredient = ({ name, water }) => {
-  console.log(water.toString() + "px");
   return (
     <div className='column'>
       <WaterIngredientWrapper height={water}>
@@ -89,8 +86,6 @@ const WaterIngredient = ({ name, water }) => {
 };
 
 const WaterView = () => {
-  // sort data by water amount
-
   function sort_by_key(array, key) {
     return array.sort(function (a, b) {
       var x = a[key];
@@ -99,13 +94,13 @@ const WaterView = () => {
     });
   }
 
-  var data = [
-    ["American Cheese", 32],
-    ["Beef", 222],
-    ["Tomatoes", 7],
-  ];
-
+  var data = [];
+  const { ingredients, ingredientImpact } = useContext(dataContext);
+  for (let i = 0; i < ingredients.length; i++) {
+    data.push([ingredients[i].name, ingredientImpact[ingredients[i].name].water.amount]);
+  }
   data = sort_by_key(data, 1);
+  data = data.slice(0, 5);
 
   return (
     <WaterViewWrapper backgroundColor='beige'>
@@ -147,7 +142,7 @@ const WaterIngredientWrapper = styled.div`
     padding: 10px;
     margin-top: 15px;
     ${(props) => css`
-      height: max(${props.height * 2}px, 15px);
+      height: min(${props.height / 2}px, 30vw);
     `};
   }
 `;
@@ -179,7 +174,7 @@ const WaterViewWrapper = styled.div`
     z-index: 4;
   }
   li:hover {
-    transform: scale(1.05);
+    transform: translateY(-15px);
   }
   .waveContainer {
     position: absolute;

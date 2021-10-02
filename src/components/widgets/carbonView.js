@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
-import CountUp, { useCountUp } from "react-countup";
+import CountUp from "react-countup";
+import { dataContext } from "../DataProvider";
 
 const CarbonIngredient = ({ name, co2 }) => {
   console.log(co2.toString() + "px");
@@ -30,8 +31,6 @@ const CarbonIngredient = ({ name, co2 }) => {
 };
 
 const CarbonView = () => {
-  // sort data by carbon amount
-
   function sort_by_key(array, key) {
     return array.sort(function (a, b) {
       var x = a[key];
@@ -40,13 +39,13 @@ const CarbonView = () => {
     });
   }
 
-  var data = [
-    ["Beef", 122],
-    ["American Cheese", 59],
-    ["Tomatoes", 15],
-  ];
-
+  var data = [];
+  const { ingredients, ingredientImpact } = useContext(dataContext);
+  for (let i = 0; i < ingredients.length; i++) {
+    data.push([ingredients[i].name, ingredientImpact[ingredients[i].name].carbon.amount]);
+  }
   data = sort_by_key(data, 1).reverse();
+  data = data.slice(0, 5);
 
   return (
     <CarbonViewWrapper backgroundColor='beige'>
@@ -58,7 +57,7 @@ const CarbonView = () => {
       <ul>
         {data.map((data_point) => (
           <li>
-            <CarbonIngredient name={data_point[0]} co2={data_point[1]} />
+            <CarbonIngredient name={data_point[0].charAt(0).toUpperCase() + data_point[0].slice(1)} co2={data_point[1]} />
           </li>
         ))}
       </ul>
