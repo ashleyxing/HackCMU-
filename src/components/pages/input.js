@@ -6,8 +6,22 @@ import fetchWebsite from '../../api/recipes/fetchWebsite';
 import axios from 'axios';
 
 const Input = () => {
-  const { website, setWebsite, setIngredients, setSubstitutes } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact } = useContext(dataContext);
 
+  const getImpact = async () => {
+      await axios.get(`http://localhost:3002/carbon_footprint`, {
+          headers: {
+          'Content-Type': 'application/json'
+      }})
+          .then((response) => {
+            var data = response.data;
+            console.log(data);
+            setIngredientImpact(data);
+          })
+          .catch((error) => console.log(error));
+ 
+  };
+  
   const getSubstitute = (websiteData, ingredient) => {
     let name = ingredient.name
     console.log(name)
@@ -29,6 +43,7 @@ const Input = () => {
             var data = response.data;
             var ingredients = data.ingredients;
             var substitutes = getSubstitutes(data, ingredients);
+            getImpact();
             setIngredients(ingredients);
             setSubstitutes(substitutes);
           })
