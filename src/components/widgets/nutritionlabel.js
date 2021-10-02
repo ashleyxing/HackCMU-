@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
   return (
     <NutritionLabelWrapper>
-      <Link to='/substitutes' className='button'>substituesB)</Link>
       <header class="performance-facts__header">
         <h1 class="performance-facts__title">{recipeName}</h1>
         <p>Here's the deets about your recipe!</p>

@@ -26,15 +26,9 @@ function App() {
           {/* <Route path='/carbon'>
             <CarbonView />
           </Route>
-<<<<<<< HEAD
           <Route path='/water'>
             <WaterView />
           </Route> */}
-=======
-          <Route path='/substitutes'>
-            <SubstitutesView />
-          </Route>
->>>>>>> ashley
         </Switch>
       </Router>
     </DataProvider>

@@ -42,7 +42,7 @@
                 "unit": "kg"
             },
             "water": {
-                "water": 264,
+                "amount": 264,
                 "unit": "lit"
             },
             "amount": 2,
@@ -54,7 +54,8 @@
                 "unit": "kg"
             },
             "water": {
-
+                "amount": 400,
+                "unit": "lit"
             },
             "amount": 1,
             "unit": "kg"

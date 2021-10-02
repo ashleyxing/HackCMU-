@@ -8,7 +8,7 @@ const Input = () => {
   const { website, setWebsite, setIngredients, setSubstitutes, ingredientImpact, setIngredientImpact, setRecipeName } = useContext(dataContext);
 
   const getImpact = async () => {
-    await axios.get(`http://localhost:3002/carbon_footprint`, {
+    await axios.get(`http://localhost:3002/impact`, {
         headers: {
         'Content-Type': 'application/json'
     }})
@@ -22,18 +22,14 @@ const Input = () => {
   };
   
   const getSubstitute = (websiteData, ingredient) => {
-    let name = ingredient.name
-    // console.log(name)
-    // console.log(websiteData.substitutes)
-    return websiteData.substitutes[name];
+    return websiteData.substitutes[ingredient.name];
   };
 
   const getSubstitutes = (websiteData, ingredients) => {
-      return ingredients.map((ingredient) => getSubstitute(websiteData, ingredient))
+    return ingredients.map((ingredient) => getSubstitute(websiteData, ingredient))
   };
 
   const fetchWebsite = async (website) => {
-<<<<<<< HEAD
     await axios.get(`http://localhost:3001/${website}`, {
         headers: {
         'Content-Type': 'application/json'
@@ -48,24 +44,7 @@ const Input = () => {
           setRecipeName(data.name);
         })
         .catch((error) => console.log(error));
-      return 0;
-=======
-      // var websiteData = 
-      await axios.get(`http://localhost:3001/${website}`, {
-          headers: {
-          'Content-Type': 'application/json'
-      }})
-          .then(async (response) => {
-            var data = response.data;
-            var ingredients = data.ingredients;
-            var substitutes = getSubstitutes(data, ingredients);
-            await getImpact();
-            setIngredients(ingredients);
-            setSubstitutes(substitutes);
-            setRecipeName(data.name);
-          })
-          .catch((error) => console.log(error));
->>>>>>> ashley
+    return 0;
   }
 
   return (
