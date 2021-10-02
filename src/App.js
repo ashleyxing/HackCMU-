@@ -6,22 +6,22 @@ import {
 } from "react-router-dom";
 import Home from './components/pages/home';
 import Input from './components/pages/input';
+import { DataProvider } from './components/DataProvider';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/input">
-          <Input />
-        </Route>
-        <Route path="/dashboard">
-          
-        </Route>
-      </Switch>
-    </Router>
+    <DataProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/input">
+            <Input />
+          </Route>
+        </Switch>
+      </Router>
+    </DataProvider>
   );
 }
 

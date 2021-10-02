@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import fetchWebsite from '../../api/recipes/fetchWebsite';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
-  const [ingredients, setIngredients] = useState(null)
   return (
     <SidebarWrapper>
       <div className="about-container">
         <h1 className="clean-plate-title">Clean Plate</h1>
         <p className="description">A fresh and environmentally friendly way of finding recipes and substitutes. Try it out now!</p>
-        <button onClick={() => setIngredients(fetchWebsite())}>PLEASE WORK</button>
+        <Link to="/input" className="button">Get Started</Link>
       </div>
     </SidebarWrapper>
   );
@@ -51,7 +50,6 @@ const SidebarWrapper = styled.div`
     text-decoration: none;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-
     &:hover {
       transform: none;
       background-color: rgba(122, 155, 118, 0.7);
