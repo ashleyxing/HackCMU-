@@ -8,11 +8,6 @@ const IngredientList = () => {
   return (
     <IngredientListWrapper>
       <NutritionLabel ingredients={ingredients} />
-      {/* <ul>
-        {ingredients.map((ingredient, i) => {
-          return <li key={i}>{ingredient.name}</li>;
-        })}
-      </ul> */}
     </IngredientListWrapper>
   );
 };
