@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
-  // console.log("Ingredients: ", ingredients);
-  // console.log("Ingredient impact: ", ingredientImpact);
+  // console.log("Ingredients: ", ingredients;
   // console.log("Ingredient impact of beef: ", ingredientImpact["beef"]);
-  // let totalCarbon = 0;
-  // for (let i = 0; i < ingredients.length; i++) {
-  //   // console.log("Ingredient impact of " + ingredients[i].name + ": " + ingredientImpact[ingredients[i].name]);
-  //   let impact = ingredientImpact[ingredients[i].name]; 
-  //   console.log(impact["carbon"]["amount"]);
-  // }
+  console.log("ASDJFLASDJFKL",ingredientImpact)
+  let totalCarbon = 0;
+  for (let i = 0; i < ingredients.length; i++) {
+    // console.log("Ingredient impact of " + ingredients[i].name + ": " + ingredientImpact[ingredients[i].name]);
+    let impact = ingredientImpact[ingredients[i].name]; 
+    let carbon = impact.carbon;
+    totalCarbon += carbon.amount;
+    // console.log(impact["carbon"]["amount"]);
+  }
   // console.log("Total carbon: ", totalCarbon);
   return (
     <NutritionLabelWrapper>
+      <Link to='/substitutes' className='button'>substituesB)</Link>
       <header class="performance-facts__header">
         <h1 class="performance-facts__title">{recipeName}</h1>
         <p>Here's the deets about your recipe!</p>

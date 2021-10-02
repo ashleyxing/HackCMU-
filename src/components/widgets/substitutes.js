@@ -1,15 +1,74 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
+import { dataContext  } from '../DataProvider';
 
-const SubstitutesView = () => {
+const Substitute = ({ingredient, ingredients, ingredientImpact, type}) => {
+    var substitutesList = ingredients.substitutes[ingredient];
+    var replacement = substitutesList[0];
+    var replacementImpact = ingredientImpact[replacement][type].amount
     return (
-        <SubstitutesWrapper backgroundColor='beige'>
-            <div className='title'>Substitutions</div>
-            <div className='subtitle'>Easy swaps for a more environmentally conscious recipe</div>
-        </SubstitutesWrapper>
+        <SubstituteWrapper>
+            <div className='name'>{ingredient}</div>
+            <div>{replacement}</div>
+            <div>{replacementImpact}</div>
+        </SubstituteWrapper>
     );
 };
-const SubstitutesWrapper = styled.div`
+const SubstitutesView = () => {
+    const { ingredients, ingredientImpact } = useContext(dataContext);
+    const findGreatestCarbon = (ingredientImpact) => {
+        var greatest = -1;
+        var greatestIngredient;
+        for (let i in ingredientImpact) {
+            if (ingredientImpact[i].carbon.amount > greatest) {
+                greatest = ingredientImpact[i].carbon.amount;
+                greatestIngredient = i;
+            }
+        }
+        return greatestIngredient;
+    };
+    const findGreatestWater = (ingredientImpact) => {
+        var greatest = -1;
+        var greatestIngredient;
+        for (let i in ingredientImpact) {
+            if (ingredientImpact[i].water.amount > greatest) {
+                greatest = ingredientImpact[i].water.amount;
+                greatestIngredient = i;
+            }
+        }
+        return greatestIngredient;
+    };
+
+    return (
+        <SubstitutesViewWrapper backgroundColor='beige'>
+            <div className='title'>Substitutions</div>
+            <div className='subtitle'>Easy swaps for a more environmentally conscious recipe</div>
+            <div>{findGreatestCarbon(ingredientImpact)}</div>
+        </SubstitutesViewWrapper>
+    );
+};
+const SubstituteWrapper = styled.div`
+  margin: 35px;
+  .name {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+  }
+  .co2 {
+    display: inline-block;
+    background-color: lightblue;
+    border-radius: 5px;
+    height: 25px;
+    padding: 10px;
+    padding-top: 12px;
+    padding-right: 12px;
+    margin-left: 20px;
+    ${(props) => css`
+      width: max(${props.width}px, 15px);
+    `};
+  }
+`;
+const SubstitutesViewWrapper = styled.div`
   font-family: Quicksand, sans-serif;
   display: flex;
   flex-direction: column;
@@ -33,4 +92,4 @@ const SubstitutesWrapper = styled.div`
     background-color: ${props.backgroundColor};
   `};
 `;
-export default Substitutes;
+export default SubstitutesView;

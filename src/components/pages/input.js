@@ -6,19 +6,21 @@ import fetchWebsite from '../../api/recipes/fetchWebsite';
 import axios from 'axios';
 
 const Input = () => {
-  const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact, setRecipeName } = useContext(dataContext);
+  const { website, setWebsite, setIngredients, setSubstitutes, ingredientImpact, setIngredientImpact, setRecipeName } = useContext(dataContext);
 
   const getImpact = async () => {
-      await axios.get(`http://localhost:3002/impact}`, {
+      await axios.get(`http://localhost:3002/impact`, {
           headers: {
           'Content-Type': 'application/json'
       }})
           .then((response) => {
             var data = response.data;
-            console.log(data);
+            // console.log("THE DATA CLEARLY EXISTS",data)
             setIngredientImpact(data);
           })
           .catch((error) => console.log(error));
+      return 0;
+      // console.log("WHY THE FUCK IS IT EMPTY", ingredientImpact)
   };
   
   const getSubstitute = (websiteData, ingredient) => {
@@ -38,11 +40,11 @@ const Input = () => {
           headers: {
           'Content-Type': 'application/json'
       }})
-          .then((response) => {
+          .then(async (response) => {
             var data = response.data;
             var ingredients = data.ingredients;
             var substitutes = getSubstitutes(data, ingredients);
-            getImpact();
+            await getImpact();
             setIngredients(ingredients);
             setSubstitutes(substitutes);
             setRecipeName(data.name);
