@@ -15,13 +15,15 @@ const getSubstitutes = async (ingredients) => {
     return await ingredients.map(async (ingredient) => await getSubstitute(ingredient))
 };
 const fetchWebsite = async () => {
-    var ingredients = await fetch('https://localhost:3001', {
-        headers: {
-            'Content-Type':'application/json',
-        },
-    })
-        .then((data) => data.ingredients)
-        .catch((error) => console.log(error));
+    var json = require('../../data/burger.json');
+    var ingredients = json.ingredients;
+    // var ingredients = await fetch('https://localhost:3001', {
+    //     headers: {
+    //         'Content-Type':'application/json',
+    //     },
+    // })
+    //     .then((data) => data.ingredients)
+    //     .catch((error) => console.log(error));
     console.log(ingredients)
     // var subs = getSubstitutes(ingredients);
     // console.log([ingredients,subs]);
