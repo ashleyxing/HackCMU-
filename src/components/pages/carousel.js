@@ -3,6 +3,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import IngredientList from '../widgets/ingredientlist';
 import CarbonView from '../widgets/carbonView';
 import WaterView from '../widgets/waterView';
+import SubstitutesView from '../widgets/substitutes';
 
 const Carousel = () => {
   return (
@@ -20,6 +21,9 @@ const Carousel = () => {
               </div>
               <div className="slide">
                 <WaterView />
+              </div>
+              <div className="slide">
+                <SubstitutesView />
               </div>
             </div>
           </div>

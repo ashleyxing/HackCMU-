@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { dataContext  } from '../DataProvider';
+import { dataContext } from '../DataProvider';
 
-const Substitute = ({ingredient, ingredients, ingredientImpact, type}) => {
-    var substitutesList = ingredients.substitutes[ingredient];
+const Substitute = ({ingredient, ingredients, ingredientImpact, type, substitutes}) => {
+    console.log("BBBBB",substitutes);
+    var substitutesList = substitutes[ingredient];
+    console.log("SUB LISTTTT",substitutesList);
     var replacement = substitutesList[0];
     var replacementImpact = ingredientImpact[replacement][type].amount
     return (
@@ -15,7 +17,8 @@ const Substitute = ({ingredient, ingredients, ingredientImpact, type}) => {
     );
 };
 const SubstitutesView = () => {
-    const { ingredients, ingredientImpact } = useContext(dataContext);
+    const { ingredients, ingredientImpact, substitutes } = useContext(dataContext);
+    console.log("SUBSTITUTES", substitutes);
     const findGreatestCarbon = (ingredientImpact) => {
         var greatest = -1;
         var greatestIngredient;
@@ -43,7 +46,20 @@ const SubstitutesView = () => {
         <SubstitutesViewWrapper backgroundColor='beige'>
             <div className='title'>Substitutions</div>
             <div className='subtitle'>Easy swaps for a more environmentally conscious recipe</div>
-            <div>{findGreatestCarbon(ingredientImpact)}</div>
+            <Substitute 
+                ingredient={findGreatestCarbon(ingredientImpact)} 
+                ingredients={ingredients} 
+                ingredientImpact={ingredientImpact} 
+                substitutes={substitutes}
+                type={"carbon"} 
+            /> 
+            <Substitute 
+                ingredient={findGreatestWater(ingredientImpact)} 
+                ingredients={ingredients} 
+                ingredientImpact={ingredientImpact} 
+                substitutes={substitutes}
+                type={"water"} 
+            /> 
         </SubstitutesViewWrapper>
     );
 };
