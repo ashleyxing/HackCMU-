@@ -1,44 +1,45 @@
 {
-    "beef": {
-        "carbon": {
-            "amount": 60,
-            "unit": "kg"
+    "carbon_footprint":{
+        "beef": {
+            "carbon": {
+                "amount": 60,
+                "unit": "kg"
+            },
+            "amount": 1,
+            "unit": "lb"
         },
-        "amount": 1,
-        "unit": "lb"
-    },
-    "tomato": {
-        "carbon": {
-            "amount": 5.02,
-            "unit": "kg"
+        "tomato": {
+            "carbon": {
+                "amount": 5.02,
+                "unit": "kg"
+            },
+            "amount": 1,
+            "unit": "lb"
         },
-        "amount": 1,
-        "unit": "lb"
-    },
-    "blue cheese": {
-        "carbon": {
-            "amount": 29.76,
-            "unit": "kg"
+        "blue cheese": {
+            "carbon": {
+                "amount": 29.76,
+                "unit": "kg"
+            },
+            "amount": 1,
+            "unit": "lb"
         },
-        "amount": 1,
-        "unit": "lb"
-    },
-    "hamburger buns": {
-        "carbon": {
+        "hamburger buns": {
+            "carbon": {
+                "amount": 1,
+                "unit": "kg"
+            },
+            "amount": 1,
+            "unit": ""
+        },
+        "mayonnaise": {
+            "carbon": {
+                "amount": 5.29,
+                "unit": "kg"
+            },
             "amount": 1,
             "unit": "kg"
-        },
-        "amount": 1,
-        "unit": ""
-    },
-    "mayonnaise": {
-        "carbon": {
-            "amount": 5.29,
-            "unit": "kg"
-        },
-        "amount": 1,
-        "unit": "kg"
+        }
     }
-
     
 }
