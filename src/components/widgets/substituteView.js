@@ -4,8 +4,37 @@ import { dataContext } from "../DataProvider";
 
 const SubstituteView = () => {
 
-  const { ingredients, substitutes } = useContext(dataContext);
-  console.log("Ingredients inside substitute view: ", substitutes)
+
+  const { ingredients, substitutes, ingredientImpact } = useContext(dataContext);
+
+  function maxCarbon() {
+    let amt = 0;
+    let res = "";
+    for (let i = 0; i < ingredients.length; i++) {
+      let name = ingredients[i].name;
+      if (ingredientImpact[name].carbon.amount > amt) {
+        amt = ingredientImpact[name].carbon.amount;
+        res = name;
+      }
+    }
+    return res;
+  }
+
+  function maxWater() {
+    let amt = 0;
+    let res = "";
+    for (let i = 0; i < ingredients.length; i++) {
+      let name = ingredients[i].name;
+      if (ingredientImpact[name].water.amount > amt) {
+        amt = ingredientImpact[name].water.amount;
+        res = name;
+      }
+    }
+    return res;
+  }
+  console.log("Max Carbon: ", maxCarbon())
+  console.log("Max water: ", maxWater())
+
   return (
     <SubstituteViewWrapper backgroundColor='beige'>
       <div className='title'>Suggested Substitutes</div>
