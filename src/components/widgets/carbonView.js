@@ -4,7 +4,6 @@ import CountUp from "react-countup";
 import { dataContext } from "../DataProvider";
 
 const CarbonIngredient = ({ name, co2 }) => {
-  console.log(co2.toString() + "px");
   return (
     <div className='row'>
       <CarbonIngredientWrapper width={co2}>

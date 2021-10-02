@@ -1,18 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import CountUp, { useCountUp } from "react-countup";
-import { dataContext } from "../DataProvider";
 
 const IngredientSection = () => {
-
-  const { ingredients, substitutes } = useContext(dataContext);
-
-  var data = [];
-  for(let i = 0; i < ingredients.length; i++) {
-    if (substitutes[i]) {
-      data.push([ingredients[i].name, substitutes[i]]);
-    }
-  }
+  var data = [
+    ["beef", "chicken"],
+    ["american cheese", "mozerella cheese"],
+    ["butter", "margarine"],
+  ];
 
   return (
     <div className='ingredient-list'>
@@ -26,7 +21,7 @@ const IngredientSection = () => {
 };
 
 const RecipeSection = () => {
-  var data = ["Impossible Burger", "Black Bean Burger", "Chicken Sliders"];
+  var data = ["Impossible Burger", "Black Bean Burger", "Vegan Sloppy Joes"];
   return (
     <div className='recipe-list'>
       {data.map((recipe_sub) => (
@@ -46,6 +41,14 @@ const SubstituteView = () => {
       return x < y ? -1 : x > y ? 1 : 0;
     });
   }
+
+  var data = [
+    ["Beef", 122],
+    ["American Cheese", 59],
+    ["Tomatoes", 15],
+  ];
+
+  data = sort_by_key(data, 1).reverse();
 
   return (
     <SubstituteViewWrapper backgroundColor='beige'>
@@ -73,24 +76,21 @@ const SubstituteViewWrapper = styled.div`
   margin: 0;
   .toptitle {
     // border: 4px solid red;
-    margin-left: 15px;
-    margin-top: 10px;
     height: auto;
     width: 100%;
     top: 0px;
-    font-size: 60px;
+    font-size: 75px;
     font-weight: bold;
   }
   .bottomtitle {
     position: relative;
     // border: 4px solid green;
     height: auto;
-    margin-bottom: 15px;
     width: 100%;
     bottom: 0px;
     right: 15px;
     text-align: right;
-    font-size: 60px;
+    font-size: 75px;
     font-weight: bold;
   }
   .sub-wrapper {
