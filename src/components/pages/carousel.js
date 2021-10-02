@@ -11,7 +11,7 @@ const Carousel = () => {
       render={({ state, fullpageApi }) => {
         return (
           <div id="fullpage-wrapper">
-            <div className="section section1">
+            <div className="section ">
               <div className="slide">
                 <IngredientList />
               </div>
@@ -19,12 +19,6 @@ const Carousel = () => {
                 <CarbonView />
               </div>
               <div className="slide">
-                {/* {(() => {
-                  if (fullpageApi.getActiveSection().index === 2) {
-                    return <WaterView />
-                  }
-                  // console.log(fullpageApi.getActiveSection());
-                })()} */}
                 <WaterView />
               </div>
             </div>
