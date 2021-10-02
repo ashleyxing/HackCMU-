@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import ImageBanner from './imagebanner';
 
-
 const VerticalScroll = () => {
   return (
     <VerticalScrollWrapper>
@@ -39,11 +38,10 @@ const VerticalScrollWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: static;
   overflow: visible;
   width: 60%;
   max-width: 1200px;
-  height: 100%;
   margin-left: 40%;
   float: none;
   clear: none;

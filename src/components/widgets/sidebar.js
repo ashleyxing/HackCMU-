@@ -50,7 +50,6 @@ const SidebarWrapper = styled.div`
     text-decoration: none;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-
     &:hover {
       transform: none;
       background-color: rgba(122, 155, 118, 0.7);
