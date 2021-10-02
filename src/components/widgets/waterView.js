@@ -176,6 +176,8 @@ const WaterViewWrapper = styled.div`
   }
   .waveContainer {
     overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
   ${(props) => css`
     background-color: ${props.backgroundColor};
