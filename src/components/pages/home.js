@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Sidebar from '../widgets/sidebar';
 import VerticalScroll from '../widgets/verticalscroll';
