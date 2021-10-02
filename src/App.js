@@ -23,12 +23,6 @@ function App() {
           <Route path='/results'>
             <Carousel />
           </Route>
-          {/* <Route path='/carbon'>
-            <CarbonView />
-          </Route>
-          <Route path='/water'>
-            <WaterView />
-          </Route> */}
         </Switch>
       </Router>
     </DataProvider>

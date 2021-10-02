@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const NutritionLabel = ({recipeName, ingredients, ingredientImpact}) => {
+const NutritionLabel = ({recipeName, ingredients}) => {
+  console.log("Ingredients inside nutrition label: ", ingredients);
+  // console.log("Substitutes inside nutrition label: ", substitutes);
   return (
     <NutritionLabelWrapper>
       <header class="performance-facts__header">

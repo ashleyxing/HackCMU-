@@ -26,7 +26,7 @@ const Input = () => {
   };
 
   const getSubstitutes = (websiteData, ingredients) => {
-    return ingredients.map((ingredient) => getSubstitute(websiteData, ingredient))
+    return ingredients.map((ingredient) => getSubstitute(websiteData, ingredient));
   };
 
   const fetchWebsite = async (website) => {
@@ -38,6 +38,7 @@ const Input = () => {
           var data = response.data;
           var ingredients = data.ingredients;
           var substitutes = getSubstitutes(data, ingredients);
+          console.log("Fethced Substitute: ", substitutes);
           await getImpact();
           setIngredients(ingredients);
           setSubstitutes(substitutes);

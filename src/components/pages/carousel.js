@@ -22,9 +22,9 @@ const Carousel = () => {
               <div className="slide">
                 <WaterView />
               </div>
-              <div className="slide">
+              {/* <div className="slide">
                 <SubstitutesView />
-              </div>
+              </div> */}
             </div>
           </div>
         );

@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 import { dataContext } from '../DataProvider';
 
 const Substitute = ({ingredient, ingredients, ingredientImpact, type, substitutes}) => {
-    console.log("BBBBB",substitutes);
+    // console.log("BBBBB",substitutes);
     var substitutesList = substitutes[ingredient];
-    console.log("SUB LISTTTT",substitutesList);
+    // console.log("SUB LISTTTT",substitutesList);
     var replacement = substitutesList[0];
     var replacementImpact = ingredientImpact[replacement][type].amount
     return (
@@ -18,7 +18,7 @@ const Substitute = ({ingredient, ingredients, ingredientImpact, type, substitute
 };
 const SubstitutesView = () => {
     const { ingredients, ingredientImpact, substitutes } = useContext(dataContext);
-    console.log("SUBSTITUTES", substitutes);
+    console.log("Passing substitute into view: ", substitutes);
     const findGreatestCarbon = (ingredientImpact) => {
         var greatest = -1;
         var greatestIngredient;

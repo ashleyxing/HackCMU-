@@ -54,11 +54,7 @@
                 "unit": "kg"
             },
             "water": {
-<<<<<<< HEAD
-                "amount": 400,
-=======
                 "amount": 560,
->>>>>>> ashley
                 "unit": "lit"
             },
             "amount": 1,
