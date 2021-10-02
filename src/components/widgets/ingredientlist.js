@@ -7,14 +7,12 @@ const IngredientList = () => {
   const { ingredients } = useContext(dataContext);
   return (
     <IngredientListWrapper>
-      <h1 className="list-title">Ingredient List</h1>
-      <p className="list-description">Here's the deets about your recipe!</p>
-      <NutritionLabel />
-      <ul>
+      <NutritionLabel ingredients={ingredients} />
+      {/* <ul>
         {ingredients.map((ingredient, i) => {
           return <li key={i}>{ingredient.name}</li>;
         })}
-      </ul>
+      </ul> */}
     </IngredientListWrapper>
   );
 };

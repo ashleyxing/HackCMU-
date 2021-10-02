@@ -5,9 +5,8 @@ const NutritionLabel = ({ingredients}) => {
   return (
     <NutritionLabelWrapper>
       <header class="performance-facts__header">
-        <h1 class="performance-facts__title">Nutrition Facts</h1>
-        <p>Serving Size 1/2 cup (about 82g)</p>
-        <p>Serving Per Container 8</p>
+        <h1 class="performance-facts__title">Ingredients List</h1>
+        <p>Here's the deets about your recipe!</p>
       </header>
       <table class="performance-facts__table">
         <thead>
