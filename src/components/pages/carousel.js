@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactFullpage from "@fullpage/react-fullpage";
 import IngredientList from '../widgets/ingredientlist';
+import CarbonView from '../widgets/carbonView';
+import WaterView from '../widgets/waterView';
 
 const Carousel = () => {
   return (
@@ -14,10 +16,16 @@ const Carousel = () => {
                 <IngredientList />
               </div>
               <div className="slide">
-                <h3>Slide 2.2</h3>
+                <CarbonView />
               </div>
               <div className="slide">
-                <h3>Slide 2.3</h3>
+                {/* {(() => {
+                  if (fullpageApi.getActiveSection().index === 2) {
+                    return <WaterView />
+                  }
+                  // console.log(fullpageApi.getActiveSection());
+                })()} */}
+                <WaterView />
               </div>
             </div>
           </div>

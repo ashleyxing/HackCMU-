@@ -7,34 +7,48 @@ var maxVal = 200;
 const CarbonIngredient = ({ name, co2 }) => {
   console.log(co2.toString() + "px");
   return (
-    <CarbonIngredientWrapper width={co2}>
-      <div className='name'>{name}</div>
-      <div className='co2'>
-        <CountUp
-          className='co2'
-          start={0}
-          end={co2}
-          duration={2.75}
-          delay={0}
-          useEasing={true}
-        >
-          {({ countUpRef }) => (
-            <div>
-              <span ref={countUpRef} />
-            </div>
-          )}
-        </CountUp>
-      </div>
-    </CarbonIngredientWrapper>
+    <div className='row'>
+      <CarbonIngredientWrapper width={co2}>
+        <div className='name'>{name}</div>
+        <div className='co2'>
+          <CountUp
+            className='co2'
+            start={0}
+            end={co2}
+            duration={2.75}
+            delay={0}
+            useEasing={true}
+          >
+            {({ countUpRef }) => (
+              <div>
+                <span ref={countUpRef} />
+              </div>
+            )}
+          </CountUp>
+        </div>
+      </CarbonIngredientWrapper>
+    </div>
   );
 };
 
 const CarbonView = () => {
+  // sort data by carbon amount
+
+  function sort_by_key(array, key) {
+    return array.sort(function (a, b) {
+      var x = a[key];
+      var y = b[key];
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+  }
+
   var data = [
     ["Beef", 122],
     ["American Cheese", 59],
     ["Tomatoes", 15],
   ];
+
+  data = sort_by_key(data, 1).reverse();
 
   return (
     <CarbonViewWrapper backgroundColor='beige'>
@@ -71,7 +85,7 @@ const CarbonIngredientWrapper = styled.div`
     padding-right: 12px;
     margin-left: 20px;
     ${(props) => css`
-      width: max(${props.width}px, 15px);
+      width: max(${props.width * 2}px, 15px);
     `};
   }
 `;
@@ -93,8 +107,11 @@ const CarbonViewWrapper = styled.div`
   ul {
     list-style-type: none;
   }
-  .image {
-    padding-bottom: 40px;
+  .row {
+    transition: transform 0.25s ease-out;
+  }
+  .row:hover {
+    transform: scale(1.1);
   }
   ${(props) => css`
     background-color: ${props.backgroundColor};
