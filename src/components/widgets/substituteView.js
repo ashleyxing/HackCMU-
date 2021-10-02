@@ -73,21 +73,24 @@ const SubstituteViewWrapper = styled.div`
   margin: 0;
   .toptitle {
     // border: 4px solid red;
+    margin-left: 15px;
+    margin-top: 10px;
     height: auto;
     width: 100%;
     top: 0px;
-    font-size: 75px;
+    font-size: 60px;
     font-weight: bold;
   }
   .bottomtitle {
     position: relative;
     // border: 4px solid green;
     height: auto;
+    margin-bottom: 15px;
     width: 100%;
     bottom: 0px;
     right: 15px;
     text-align: right;
-    font-size: 75px;
+    font-size: 60px;
     font-weight: bold;
   }
   .sub-wrapper {
