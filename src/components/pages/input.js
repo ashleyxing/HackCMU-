@@ -8,22 +8,23 @@ const Input = () => {
   const { website, setWebsite, setIngredients, setSubstitutes, setIngredientImpact, setRecipeName } = useContext(dataContext);
 
   const getImpact = async () => {
-      await axios.get(`http://localhost:3002/carbon_footprint`, {
-          headers: {
-          'Content-Type': 'application/json'
-      }})
-          .then((response) => {
-            var data = response.data;
-            console.log(data);
-            setIngredientImpact(data);
-          })
-          .catch((error) => console.log(error));
+    await axios.get(`http://localhost:3002/carbon_footprint`, {
+        headers: {
+        'Content-Type': 'application/json'
+    }})
+        .then((response) => {
+          var data = response.data;
+          console.log(data);
+          setIngredientImpact(data);
+        })
+        .catch((error) => console.log(error));
+    return 0;
   };
   
   const getSubstitute = (websiteData, ingredient) => {
     let name = ingredient.name
-    console.log(name)
-    console.log(websiteData.substitutes)
+    // console.log(name)
+    // console.log(websiteData.substitutes)
     return websiteData.substitutes[name];
   };
 
@@ -32,20 +33,21 @@ const Input = () => {
   };
 
   const fetchWebsite = async (website) => {
-      await axios.get(`http://localhost:3001/${website}`, {
-          headers: {
-          'Content-Type': 'application/json'
-      }})
-          .then((response) => {
-            var data = response.data;
-            var ingredients = data.ingredients;
-            var substitutes = getSubstitutes(data, ingredients);
-            getImpact();
-            setIngredients(ingredients);
-            setSubstitutes(substitutes);
-            setRecipeName(data.name);
-          })
-          .catch((error) => console.log(error));
+    await axios.get(`http://localhost:3001/${website}`, {
+        headers: {
+        'Content-Type': 'application/json'
+    }})
+        .then(async (response) => {
+          var data = response.data;
+          var ingredients = data.ingredients;
+          var substitutes = getSubstitutes(data, ingredients);
+          await getImpact();
+          setIngredients(ingredients);
+          setSubstitutes(substitutes);
+          setRecipeName(data.name);
+        })
+        .catch((error) => console.log(error));
+      return 0;
   }
 
   return (

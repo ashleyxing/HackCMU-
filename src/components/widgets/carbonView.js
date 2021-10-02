@@ -2,8 +2,6 @@ import React from "react";
 import styled, { css } from "styled-components";
 import CountUp, { useCountUp } from "react-countup";
 
-var maxVal = 200;
-
 const CarbonIngredient = ({ name, co2 }) => {
   console.log(co2.toString() + "px");
   return (
